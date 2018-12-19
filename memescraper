@@ -1,0 +1,40 @@
+#HellTML
+#A program to butcher the HTML file of a URL.
+#Does not work for all websites
+#Working Websites:
+import urllib.request
+import random
+
+inject = ["memes/pika.gif",
+          "memes/kid.gif",
+          "memes/jeff.gif",
+          "memes/bee.gif",
+          "memes/shrek.gif",
+          "memes/obiwan.gif",
+          "memes/tony.jpg",
+          "memes/tobey.gif"]
+
+print("HellTML")
+print("A program to generate an horribly butchered HTML file of any website.")
+url = input("Please input a URL: ")
+
+#url = "http://spartanhackers.com"
+urllib.request.urlretrieve(url, "old.html")
+
+input_html = open("old.html", "r", -1, encoding='utf-8')
+output_html = open("index.html", "w", -1, encoding='utf-8')
+
+for line in input_html:
+    line = line.replace("<body", "<body background =\"" + inject[random.randint(0,len(inject) - 1)] + "\">")
+    line = line.replace("the ", "<img src = \"memes/the.jpg\"/>")
+    line = line.replace("more ", '<img src= "memes/moar.jpg">')
+    line = line.replace("More ", '<img src= "memes/moar.jpg">')
+    line = line.replace("Yes", '<img src="memes/yee.gif">')
+    line = line.replace(" you ", '<img src="memes/u.jpg">')
+    output_html.write(line)
+    
+print("Your HTML file has been created. Open index.html to see.")
+exit_in = input("Press ENTER to exit")
+    
+input_html.close()
+output_html.close()
