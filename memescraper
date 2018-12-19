@@ -1,7 +1,5 @@
 #HellTML
-#A program to butcher the HTML file of a URL.
-#Does not work for all websites
-#Working Websites:
+#A program to butcher the HTML file of a URL
 import urllib.request
 import random
 
@@ -15,7 +13,7 @@ inject = ["memes/pika.gif",
           "memes/tobey.gif"]
 
 print("HellTML")
-print("A program to generate an horribly butchered HTML file of any website.")
+print("A program to generate and horribly butcher HTML file of any website.")
 url = input("Please input a URL: ")
 
 #url = "http://spartanhackers.com"
